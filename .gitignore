@@ -95,4 +95,4 @@ ENV/
 # devops ignores
 /portfolio/node_modules/
 db.sqlite3
-static/
+./static/
