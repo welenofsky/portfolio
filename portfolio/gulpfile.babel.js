@@ -9,6 +9,7 @@ import gulp from 'gulp';
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
 import plugins from 'gulp-load-plugins';
+import sass from 'gulp-sass';
 
 
 
@@ -48,4 +49,11 @@ gulp.task('styles:bootstrap', () =>
 	gulp.src('node_modules/bootstrap/dist/css/bootstrap-flex*(.min).css*(.map)')
 		.pipe(gulp.dest('static/css'))
 		//.pipe(plugins().notify('Bootstrap CSS copied successfully!'))
+);
+
+gulp.task('styles:main', () =>
+	gulp.src('./scss/main.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./static/css'))
+		.pipe(plugins().notify('SASS compiled successfully!'))
 );
